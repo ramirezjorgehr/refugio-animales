@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InicioComponent } from './inicio/inicio.component';
 import { MascotasListarComponent } from './components/mascotas-listar/mascotas-listar.component';
 import{HttpClientModule} from  '@angular/common/http';
-import { MascotasService } from './services/mascotas.service';
+import { MascotasService } from './shared/mascotas.service';
 
 
 @NgModule({

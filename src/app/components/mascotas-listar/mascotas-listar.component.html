@@ -1,11 +1,17 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
             <th>Nombre</th>
             <th>Tipo</th>
             <th>Edad</th>
             <th>Descripcion</th>
         </tr>
     </thead>
+    <tr *ngFor="let mascota of mascotas">
+        <td>{{mascota.nombre}}</td>
+        <td>{{mascota.tipo}}</td>
+        <td>{{mascota.edad}}</td>
+        <td>{{mascota.descripcion}}</td>
+    </tr>
+
 </table>
