@@ -1,0 +1,29 @@
+<form clrForm [formGroup]="mascotasForm" (ngSubmit)="onSubmit()">
+    <clr-input-container>
+        <label>Nombre</label>
+        <input clrInput type="text" formControlName="nombre" required/>
+        <clr-control-helper>Ingrese el nombre de la mascota</clr-control-helper>
+        <clr-control-error>El campo nombre es obligatorio</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Tipo</label>
+        <input clrInput type="text" formControlName="tipo" required/>
+        <clr-control-helper>Ingrese el tipo de mascota</clr-control-helper>
+        <clr-control-error>El campo tipo es obligatorio</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Edad</label>
+        <input clrInput type="number" max="120" min="1" formControlName="edad" required />
+        <clr-control-helper>Ingrese edad de la macota</clr-control-helper>
+        <clr-control-error>Error message that appears after focus is lost and control is invalid</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Descripcion</label>
+        <input clrInput type="text" size=50 formControlName="descripcion" required/>
+        <clr-control-helper>Ingrese una descripcion de la mascota</clr-control-helper>
+        <clr-control-error>El campo descripcion es obligatorio</clr-control-error>
+    </clr-input-container><br>
+    <button class="btn btn-success" type="submit" [disabled]="!mascotasForm.valid">AGREGAR</button>
+</form>
+<button (click)="reset()" class="btn btn-primary">LIMPIAR</button>
+<button class="btn" routerLink="/mascotas">CANCELAR</button>
