@@ -8,9 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InicioComponent } from './inicio/inicio.component';
 import { MascotasListarComponent } from './components/mascotas/mascotas-listar/mascotas-listar.component';
 import{HttpClientModule} from  '@angular/common/http';
-import { MascotasService } from './shared/mascotas.service';
+import { MascotasService } from './components/mascotas/shared/mascotas.service';
 import { MascotasAgregarComponent } from './components/mascotas/mascotas-agregar/mascotas-agregar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MascotasEditarComponent } from './components/mascotas/mascotas-editar/mascotas-editar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MascotasListarComponent,
     
     MascotasAgregarComponent,
+    
+    MascotasEditarComponent,
    ],
   imports: [
     HttpClientModule,

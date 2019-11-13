@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { MascotasService } from 'src/app/shared/mascotas.service';
+import { MascotasService } from 'src/app/components/mascotas/shared/mascotas.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-mascotas-agregar',
@@ -11,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class MascotasAgregarComponent implements OnInit {
   mascotasForm = this.fb.group({
-    nombre: ['',[Validators.pattern('[a-zA-Z ]*'), Validators.required]],
-    tipo: ['',[Validators.pattern('[a-zA-Z ]*'),Validators.required]],
+    nombre: ['',[Validators.pattern('[a-zA-ZñÑ ]*'), Validators.required]],
+    tipo: ['',[Validators.pattern('[a-zA-ZñÑ ]*'),Validators.required]],
     edad: ['',[Validators.required, Validators.pattern("^[0-9]$|^[0-9][0-9]$|^[0-9][0-9][0-9]$"), Validators.max(120),Validators.min(1)]],
-    descripcion: ['',[Validators.pattern('[a-zA-Z ]*'),Validators.required]]   
+    descripcion: ['',Validators.required]   
   });
 
   constructor(private fb: FormBuilder,private mascotasService: MascotasService,private router:Router) { }
@@ -25,8 +26,13 @@ export class MascotasAgregarComponent implements OnInit {
 });
     console.warn(this.mascotasForm.value);
   }
-  reset(){
+  reset($event){
+    event.preventDefault();
     this.mascotasForm.reset();
+  }
+  cancel($event){
+    event.preventDefault();
+    this.router.navigate(['/mascotas']);
   }
   
   ngOnInit() {

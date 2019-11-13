@@ -1,4 +1,4 @@
-<form clrForm [formGroup]="mascotasForm" (ngSubmit)="onSubmit()">
+<form clrForm [formGroup]="mascotasForm" (ngSubmit)="onUpdate()">
     <clr-input-container>
         <label>Nombre</label>
         <input clrInput type="text" formControlName="nombre" required/>
@@ -23,8 +23,6 @@
         <clr-control-helper>Ingrese una descripcion de la mascota</clr-control-helper>
         <clr-control-error>El campo descripcion es obligatorio</clr-control-error>
     </clr-input-container><br>
-    <button class="btn btn-success" type="submit" [disabled]="!mascotasForm.valid">AGREGAR</button>
-    <button (click)="reset($event)" class="btn btn-primary">LIMPIAR</button>
+    <button class="btn btn-success" type="submit" [disabled]="!mascotasForm.valid">ACTUALIZAR</button>
     <button (click)="cancel($event)" class="btn">CANCELAR</button>
-
 </form>

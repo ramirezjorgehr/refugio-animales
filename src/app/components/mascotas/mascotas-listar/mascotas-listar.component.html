@@ -17,14 +17,19 @@
                     <th>Nombre</th>
                     <th>Tipo</th>
                     <th>Edad</th>
-                    <th>Descripcion</th>
+                    <th style="text-align: left">Descripcion</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tr *ngFor="let mascota of mascotas ">
                 <td>{{mascota.nombre}}</td>
                 <td>{{mascota.tipo}}</td>
                 <td>{{mascota.edad}}</td>
-                <td>{{mascota.descripcion}}</td>
+                <td class="descripcion">{{mascota.descripcion}}</td>
+                <td class="column_edit">
+                    <button type="button" class="btn btn-icon" aria-label="pencil" [routerLink]="['/mascotas-editar', mascota.id]">
+                    <clr-icon shape="pencil"></clr-icon>
+                    </button>
             </tr>
 
         </table>
