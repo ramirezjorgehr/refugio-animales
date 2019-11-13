@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
 import { MascotasService } from 'src/app/components/mascotas/shared/mascotas.service';
 import { Validators, FormBuilder } from '@angular/forms';
 
@@ -24,7 +23,7 @@ export class MascotasEditarComponent implements OnInit {
     private mascotaService: MascotasService) { }
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
-    this.mascota$ = this.mascotaService.getMascota(parseInt(id)).subscribe((data)=>{
+    this.mascotaService.getMascota(parseInt(id)).subscribe((data)=>{
      console.warn(data);
      this.mascotasForm.setValue(data);
 
@@ -40,4 +39,5 @@ cancel($event){
   event.preventDefault();
   this.router.navigate(['/mascotas']);
 }
+
 }

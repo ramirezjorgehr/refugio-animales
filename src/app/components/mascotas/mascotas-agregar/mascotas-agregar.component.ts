@@ -29,6 +29,7 @@ export class MascotasAgregarComponent implements OnInit {
   reset($event){
     event.preventDefault();
     this.mascotasForm.reset();
+  
   }
   cancel($event){
     event.preventDefault();

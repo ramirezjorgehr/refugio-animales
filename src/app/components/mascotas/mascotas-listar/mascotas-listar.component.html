@@ -30,6 +30,11 @@
                     <button type="button" class="btn btn-icon" aria-label="pencil" [routerLink]="['/mascotas-editar', mascota.id]">
                     <clr-icon shape="pencil"></clr-icon>
                     </button>
+                    <button type="button" (click)="delete(mascota.id)" class="btn btn-icon btn-danger" aria-label="trash">
+                        <clr-icon shape="trash"></clr-icon>
+                    
+                    </button>
+                </td>
             </tr>
 
         </table>
