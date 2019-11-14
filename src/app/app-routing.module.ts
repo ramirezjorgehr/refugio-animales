@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { InicioComponent } from './inicio/inicio.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 import { MascotasListarComponent } from './components/mascotas/mascotas-listar/mascotas-listar.component';
 import { MascotasAgregarComponent } from './components/mascotas/mascotas-agregar/mascotas-agregar.component';
 import { MascotasEditarComponent } from './components/mascotas/mascotas-editar/mascotas-editar.component';

@@ -1,21 +1,29 @@
+<h1>Agregar Mascota para Adoptar</h1><img src="/assets/img/pandakungfu.gif" alt="Funny image">
 <form clrForm [formGroup]="mascotasForm" (ngSubmit)="onSubmit()">
     <clr-input-container>
         <label>Nombre</label>
         <input clrInput type="text" formControlName="nombre" required/>
+
         <clr-control-helper>Ingrese el nombre de la mascota</clr-control-helper>
-        <clr-control-error>El campo nombre es obligatorio</clr-control-error>
+        <clr-control-error *clrIfError="'required'">El campo nombre es obligatorio</clr-control-error>
+        <clr-control-error *clrIfError="'pattern'">El nombre solo puede contener letras</clr-control-error>
     </clr-input-container>
     <clr-input-container>
         <label>Tipo</label>
         <input clrInput type="text" formControlName="tipo" required/>
         <clr-control-helper>Ingrese el tipo de mascota</clr-control-helper>
-        <clr-control-error>El campo tipo es obligatorio</clr-control-error>
+        <clr-control-error *clrIfError="'required'">El campo tipo es obligatorio</clr-control-error>
+        <clr-control-error *clrIfError="'pattern'">El tipo solo puede contener letras</clr-control-error>
     </clr-input-container>
     <clr-input-container>
         <label>Edad</label>
         <input clrInput type="number" max="120" min="1" formControlName="edad" required />
-        <clr-control-helper>Ingrese edad de la macota</clr-control-helper>
-        <clr-control-error>Error message that appears after focus is lost and control is invalid</clr-control-error>
+        <clr-control-helper>Ingrese la edad de la mascota en años</clr-control-helper>
+        <clr-control-error *clrIfError="'required'">El campo edad es obligatorio</clr-control-error>
+        <clr-control-error *clrIfError="'pattern'">La edad debe ser numerica</clr-control-error>
+        <clr-control-error *clrIfError="'min'">La edad no puede ser menor a 1 año</clr-control-error>
+        <clr-control-error *clrIfError="'max'">La edad no puede ser mayor a 120 años</clr-control-error>
+
     </clr-input-container>
     <clr-input-container>
         <label>Descripcion</label>
@@ -28,3 +36,16 @@
     <button (click)="cancel($event)" class="btn">CANCELAR</button>
 
 </form>
+<div *ngIf="mostrarmodal">
+    <div class="modal-backdrop fade in" aria-hidden="true"></div>
+    <div class="modal">
+        <div class="modal-dialog fadeDown in" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Mascota Agregada!
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

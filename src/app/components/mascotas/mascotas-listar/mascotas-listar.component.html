@@ -1,3 +1,24 @@
+<div class="modal" *ngIf="mostrarmodal">
+    <div class="modal-dialog modal-sm" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>¿Seguro desea eliminar?</h5>
+                <img *ngIf="mostrartacho" src="assets/img/borrar.gif" alt="borrar" />
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" (click)="cancel()" type="button">
+      Cancel
+    </button>
+                <button class="btn btn-primary" (click)="delete()" type="button">
+      Ok
+    </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="clr-row">
     <div class="clr-col">
         <h1>Mascotas para adoptar</h1>
@@ -5,12 +26,13 @@
 </div>
 <div class="clr-row">
     <div class="clr-col">
-        <button class="btn btn-outline" routerLink="/mascotas-agregar">Agregar Mascota</button>
+        <button class="btn btn-outline" routerLink="/mascotas-agregar">
+      Agregar Mascota
+    </button>
     </div>
 </div>
 <div class="clr-row">
     <div class="clr-col">
-
         <table class=" table ">
             <thead>
                 <tr>
@@ -21,22 +43,21 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tr *ngFor="let mascota of mascotas ">
-                <td>{{mascota.nombre}}</td>
-                <td>{{mascota.tipo}}</td>
-                <td>{{mascota.edad}}</td>
-                <td class="descripcion">{{mascota.descripcion}}</td>
+            <tr *ngFor="let mascota of mascotas">
+                <td>{{ mascota.nombre }}</td>
+                <td>{{ mascota.tipo }}</td>
+                <td>{{ mascota.edad }}</td>
+                <td class="descripcion">{{ mascota.descripcion }}</td>
                 <td class="column_edit">
+
                     <button type="button" class="btn btn-icon" aria-label="pencil" [routerLink]="['/mascotas-editar', mascota.id]">
-                    <clr-icon shape="pencil"></clr-icon>
-                    </button>
-                    <button type="button" (click)="delete(mascota.id)" class="btn btn-icon btn-danger" aria-label="trash">
-                        <clr-icon shape="trash"></clr-icon>
-                    
-                    </button>
+            <clr-icon shape="pencil"></clr-icon>
+          </button>
+                    <button type="button" (click)="okBorrar(mascota)" class="btn btn-icon btn-danger " aria-label="trash ">
+            <clr-icon shape="trash "></clr-icon>
+          </button>
                 </td>
             </tr>
-
         </table>
     </div>
 </div>

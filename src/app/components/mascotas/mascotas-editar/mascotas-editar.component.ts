@@ -16,8 +16,6 @@ export class MascotasEditarComponent implements OnInit {
     edad: ['',[Validators.required, Validators.pattern("^[0-9]$|^[0-9][0-9]$|^[0-9][0-9][0-9]$"), Validators.max(120),Validators.min(1)]],
     descripcion: ['',Validators.required]  
   });
-  mascota$: any;
-
   constructor(private fb: FormBuilder, private route: ActivatedRoute,
     private router: Router,
     private mascotaService: MascotasService) { }

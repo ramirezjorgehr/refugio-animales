@@ -18,13 +18,23 @@ export class MascotasAgregarComponent implements OnInit {
     descripcion: ['',Validators.required]   
   });
 
+  mostrarmodal:boolean=false;
   constructor(private fb: FormBuilder,private mascotasService: MascotasService,private router:Router) { }
 
-  onSubmit() {
+
+  agregarMascota(){
     this.mascotasService.addMascota(this.mascotasForm.value).subscribe(data => {
-      this.router.navigate(['/mascotas']);
+      
+      this.router.navigate(['/mascotas']);   
 });
-    console.warn(this.mascotasForm.value);
+  }
+  onSubmit() {
+
+    this.mostrarmodal=true;
+    setTimeout((date) => {
+   this.agregarMascota();
+ }, 2000);
+
   }
   reset($event){
     event.preventDefault();
