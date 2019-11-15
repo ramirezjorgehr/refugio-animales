@@ -2,11 +2,12 @@ import { JitCompiler } from '@angular/compiler';
 
 export interface Mascota {
    
-    id:number;
+id:number;
  nombre:String;
  tipo:String;
  edad:number;
  descripcion:String;
+ imagen:String;
   
  
 

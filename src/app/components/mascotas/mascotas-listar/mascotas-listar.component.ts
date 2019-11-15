@@ -9,13 +9,18 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./mascotas-listar.component.css']
 })
 export class MascotasListarComponent implements OnInit {
-mascota
+mascota:Mascota;
   constructor(private mascotasService: MascotasService, private route: ActivatedRoute, private router:Router) { }
 
   public mascotas:Array<Mascota> = [];
   mostrarmodal:boolean=false;
   mostrarpregunta:boolean=true;
   mostrartacho:boolean=false;
+  mostrarBotonEliminar=true;
+  mostrarBotonCancelar=true;
+  mostrarImagen=false;
+  imagenurl:string;
+  imagenMascota:Mascota;
   
   ngOnInit() {
     this.mascotasService.getMascotas().subscribe((data)=>{
@@ -34,16 +39,22 @@ mascota
        this.mostrarmodal=false;
        this.mostrartacho=false;
        this.mostrarpregunta=true;
+       this.mostrarBotonCancelar=true;
+       this.mostrarBotonEliminar=true;
     });
 
    }
   delete(){
+    this.mostrarpregunta=false;
+    this.mostrartacho=true;
+    this.mostrarBotonCancelar=false;
+    this.mostrarBotonEliminar=false;
+
    setTimeout(() => {
        this.borrar();
     
    }, 2000);
-   this.mostrarpregunta=false;
-   this.mostrartacho=true;
+   
     
  }
 
@@ -57,4 +68,8 @@ mascota
     this.mascota=mascota;
     this.mostrarmodal=true;
   }
+ 
+  
+
+  
 }

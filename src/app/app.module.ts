@@ -12,6 +12,8 @@ import { MascotasService } from './components/mascotas/shared/mascotas.service';
 import { MascotasAgregarComponent } from './components/mascotas/mascotas-agregar/mascotas-agregar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MascotasEditarComponent } from './components/mascotas/mascotas-editar/mascotas-editar.component';
+import { MascotasAdoptarComponent } from './components/mascotas/mascotas-adoptar/mascotas-adoptar.component';
+import { MascotaCardComponent } from './components/mascotas/mascota-card/mascota-card.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,10 @@ import { MascotasEditarComponent } from './components/mascotas/mascotas-editar/m
     MascotasAgregarComponent,
     
     MascotasEditarComponent,
+    
+    MascotasAdoptarComponent,
+    
+    MascotaCardComponent,
    ],
   imports: [
     HttpClientModule,

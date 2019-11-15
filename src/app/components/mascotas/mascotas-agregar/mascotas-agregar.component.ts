@@ -15,7 +15,8 @@ export class MascotasAgregarComponent implements OnInit {
     nombre: ['',[Validators.pattern('[a-zA-ZñÑ ]*'), Validators.required]],
     tipo: ['',[Validators.pattern('[a-zA-ZñÑ ]*'),Validators.required]],
     edad: ['',[Validators.required, Validators.pattern("^[0-9]$|^[0-9][0-9]$|^[0-9][0-9][0-9]$"), Validators.max(120),Validators.min(1)]],
-    descripcion: ['',Validators.required]   
+    descripcion: ['',Validators.required],
+    imagen: ['',Validators.required]   
   });
 
   mostrarmodal:boolean=false;

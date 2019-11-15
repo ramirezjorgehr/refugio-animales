@@ -3,6 +3,21 @@
 }
 
 .descripcion {
-    width: 600px;
+    width: 200px;
+    text-align: left;
+}
+
+.tacho {
+    margin-left: 3rem;
+    margin-right: auto;
+    display: block;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.imagenurl {
+    width: 200px;
     text-align: left;
 }

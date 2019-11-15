@@ -1,27 +1,27 @@
 <div class="modal" *ngIf="mostrarmodal">
     <div class="modal-dialog modal-sm" role="dialog" aria-hidden="true">
         <div class="modal-content">
-            <div class="modal-header">
+            <div *ngIf="mostrarpregunta" class="modal-header">
                 <h5>¿Seguro desea eliminar?</h5>
-                <img *ngIf="mostrartacho" src="assets/img/borrar.gif" alt="borrar" />
+            </div>
+            <div *ngIf="mostrartacho" class="tacho">
+                <img src="assets/img/borrar.gif" alt="borrar" />
             </div>
             <div class="modal-footer">
-                <button class="btn btn-outline" (click)="cancel()" type="button">
-      Cancel
-    </button>
-                <button class="btn btn-primary" (click)="delete()" type="button">
-      Ok
-    </button>
+                <button *ngIf="mostrarBotonCancelar" class="btn btn-outline" (click)="cancel()" type="button">
+          Cancelar
+        </button>
+                <button *ngIf="mostrarBotonEliminar" class="btn btn-primary" (click)="delete()" type="button">
+          Eliminar
+        </button>
             </div>
         </div>
     </div>
 </div>
 
-
-
 <div class="clr-row">
     <div class="clr-col">
-        <h1>Mascotas para adoptar</h1>
+        <h1>Mascotas en el Refugio</h1>
     </div>
 </div>
 <div class="clr-row">
@@ -40,6 +40,7 @@
                     <th>Tipo</th>
                     <th>Edad</th>
                     <th style="text-align: left">Descripcion</th>
+                    <th style="text-align: left">url imagen</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -47,9 +48,10 @@
                 <td>{{ mascota.nombre }}</td>
                 <td>{{ mascota.tipo }}</td>
                 <td>{{ mascota.edad }}</td>
-                <td class="descripcion">{{ mascota.descripcion }}</td>
-                <td class="column_edit">
 
+                <td class="descripcion">{{ mascota.descripcion }}</td>
+                <td class="imagenurl">{{ mascota.imagen }}</td>
+                <td class="column_edit">
                     <button type="button" class="btn btn-icon" aria-label="pencil" [routerLink]="['/mascotas-editar', mascota.id]">
             <clr-icon shape="pencil"></clr-icon>
           </button>

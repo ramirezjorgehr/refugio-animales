@@ -23,14 +23,24 @@
         <clr-control-error *clrIfError="'pattern'">La edad debe ser numerica</clr-control-error>
         <clr-control-error *clrIfError="'min'">La edad no puede ser menor a 1 año</clr-control-error>
         <clr-control-error *clrIfError="'max'">La edad no puede ser mayor a 120 años</clr-control-error>
-
     </clr-input-container>
+
     <clr-input-container>
         <label>Descripcion</label>
         <input clrInput type="text" size=50 formControlName="descripcion" required/>
         <clr-control-helper>Ingrese una descripcion de la mascota</clr-control-helper>
         <clr-control-error>El campo descripcion es obligatorio</clr-control-error>
-    </clr-input-container><br>
+    </clr-input-container>
+
+    <clr-input-container>
+        <label>Imagen</label>
+        <input clrInput type="text" size=50 formControlName="imagen" required/>
+        <clr-control-helper>Ingrese la url de la imagen</clr-control-helper>
+        <clr-control-error>El campo imagen es obligatorio</clr-control-error>
+    </clr-input-container>
+
+
+    <br>
     <button class="btn btn-success" type="submit" [disabled]="!mascotasForm.valid">AGREGAR</button>
     <button (click)="reset($event)" class="btn btn-primary">LIMPIAR</button>
     <button (click)="cancel($event)" class="btn">CANCELAR</button>
