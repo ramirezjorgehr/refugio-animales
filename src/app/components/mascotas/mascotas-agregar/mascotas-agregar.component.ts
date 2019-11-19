@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { MascotasService } from 'src/app/components/mascotas/shared/mascotas.service';
 import { Router } from '@angular/router';
+import { Mascota } from '../shared/mascota';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class MascotasAgregarComponent implements OnInit {
 
 
   agregarMascota(){
+    this.edit();
     this.mascotasService.addMascota(this.mascotasForm.value).subscribe(data => {
       
       this.router.navigate(['/mascotas']);   
@@ -37,6 +39,13 @@ export class MascotasAgregarComponent implements OnInit {
  }, 2000);
 
   }
+
+edit(){
+  let mascota:Mascota =this.mascotasForm.value;
+  mascota.tipo= mascota.tipo.toLowerCase();
+  console.log(mascota.tipo);
+}
+
   reset($event){
     event.preventDefault();
     this.mascotasForm.reset();

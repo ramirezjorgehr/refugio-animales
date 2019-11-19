@@ -1,49 +1,176 @@
 <div class="clr-row">
     <div class="clr-col">
         <h1>Mascotas para adoptar</h1>
+        <clr-dropdown>
+            <button class="btn btn-outline-primary" clrDropdownTrigger>
+                tipo:
+                <clr-icon shape="caret down"></clr-icon>
+            </button>
+            <clr-dropdown-menu *clrIfOpen>
+                <label class="dropdown-header" aria-hidden="true">Elige un tipo:</label>
+                <div aria-label="Dropdown header Action 1" (click)="todos()" clrDropdownItem>Todos</div>
+                <div aria-label="Dropdown header Action 1" (click)="Perros()" clrDropdownItem>Perro</div>
+                <div aria-label="Dropdown header Action 2 " (click)="Gatos()" clrDropdownItem>Gato</div>
+                <div aria-label="Dropdown header Action 3 " (click)="Pajaros()" clrDropdownItem>Pajaro</div>
+                <div aria-label="Dropdown header Action 1 " (click)="Otros()" clrDropdownItem>Otro</div>
+            </clr-dropdown-menu>
+        </clr-dropdown>
     </div>
 </div>
-
-<div class="clr-row">
-    <div class="clr-col">
-        <table class=" table ">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Tipo</th>
-                    <th>Ver Imformacion</th>
-                </tr>
-            </thead>
-            <tr *ngFor="let mascota of mascotas">
-                <td>{{ mascota.nombre }}</td>
-                <td>{{ mascota.tipo }}</td>
-                <td>
-                    <button class="btn btn-outline" type="button" (click)="mostrar(mascota)">
+<div *ngIf="verTodos " class="todos ">
+    <div class="clr-row ">
+        <div class="clr-col ">
+            <table class=" table ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Edad</th>
+                        <th>Ver Imformacion</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let mascota of mascotas ">
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.tipo }}</td>
+                    <td>{{ mascota.edad }}</td>
+                    <td>
+                        <button class="btn btn-outline " type="button " (click)="mostrar(mascota) ">
             Ver Mascota
           </button>
-                </td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="verPerros " class="perros ">
+    <div class="clr-row ">
+        <div class="clr-col ">
+            <table class=" table ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Edad</th>
+                        <th>Ver Imformacion</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let mascota of perros">
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.tipo }}</td>
+                    <td>{{ mascota.edad }}</td>
+                    <td>
+                        <button class="btn btn-outline " type="button " (click)="mostrar(mascota) ">
+            Ver Mascota
+          </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 
 
-<div class="card" *ngIf="booleano">
-    <div class="modal">
-        <div class="modal-dialog" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">¿Me adoptas?</h3>
+<div *ngIf="verPajaros " class="pajaros ">
+    <div class="clr-row ">
+        <div class="clr-col ">
+            <table class=" table ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Edad</th>
+                        <th>Ver Imformacion</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let mascota of pajaros">
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.tipo }}</td>
+                    <td>{{ mascota.edad }}</td>
+                    <td>
+                        <button class="btn btn-outline " type="button " (click)="mostrar(mascota) ">
+            Ver Mascota
+          </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="verGatos" class="gatos">
+    <div class="clr-row ">
+        <div class="clr-col ">
+            <table class=" table ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Edad</th>
+                        <th>Ver Imformacion</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let mascota of gatos">
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.tipo }}</td>
+                    <td>{{ mascota.edad }}</td>
+                    <td>
+                        <button class="btn btn-outline " type="button " (click)="mostrar(mascota) ">
+            Ver Mascota
+          </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="verOtros" class="otros">
+    <div class="clr-row ">
+        <div class="clr-col ">
+            <table class=" table ">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Edad</th>
+                        <th>Ver Imformacion</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let mascota of otros">
+                    <td>{{ mascota.nombre }}</td>
+                    <td>{{ mascota.tipo }}</td>
+                    <td>{{ mascota.edad }}</td>
+                    <td>
+                        <button class="btn btn-outline " type="button " (click)="mostrar(mascota) ">
+            Ver Mascota
+          </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card " *ngIf="booleano ">
+    <div class="modal ">
+        <div class="modal-dialog " role="dialog " aria-hidden="true ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h3 class="modal-title ">¿Me adoptas?</h3>
                 </div>
-                <div class="modal-body">
-                    <app-mascota-card [mascotaSeleccionada]="mascotaSeleccionada"></app-mascota-card>
+                <div class="modal-body ">
+                    <app-mascota-card [mascotaSeleccionada]="mascotaSeleccionada "></app-mascota-card>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-outline" type="button" (click)="ocultar()">Cancelar</button>
-                    <button class="btn btn-primary" type="button" (click)="adoptar()">Adoptar</button>
+                <div class="modal-footer ">
+                    <button class="btn btn-outline " type="button " (click)="ocultar() ">Cancelar</button>
+                    <button class="btn btn-primary " type="button " (click)="adoptar() ">Adoptar</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal-backdrop" aria-hidden="true"></div>
+    <div class="modal-backdrop " aria-hidden="true "></div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MascotasService } from 'src/app/components/mascotas/shared/mascotas.service';
 import { Validators, FormBuilder } from '@angular/forms';
+import { Mascota } from '../shared/mascota';
 
 @Component({
   selector: 'app-mascotas-editar',
@@ -29,7 +30,14 @@ export class MascotasEditarComponent implements OnInit {
     })
 
 }
+edit(){
+  let mascota:Mascota =this.mascotasForm.value;
+  mascota.tipo= mascota.tipo.toLowerCase();
+  console.log(mascota.tipo);
+}
+
 onUpdate(){
+  this.edit();
   this.mascotaService.updateMascota(this.mascotasForm.value).subscribe(data => {
     this.router.navigate(['/mascotas']);
 });
